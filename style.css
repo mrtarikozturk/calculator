@@ -4,7 +4,7 @@
     box-sizing: border-box;
     /* border: 1px solid green; */
 }
-
+/* #CEC5CA */
 @keyframes bgcolor {
     0% {
         background-color: #45a3e5
@@ -38,7 +38,7 @@ body{
     -webkit-animation-direction: alternate;
     animation-direction: alternate; */
     /* height: 100%; */
-    background: linear-gradient(90deg, rgb(226, 139, 247) 0%, rgb(230, 101, 184) 100%);
+    background: linear-gradient(90deg, rgb(226, 139, 247) 0%, #E85AA6 100%);
 }
 
 
@@ -61,7 +61,6 @@ body{
 
 .item{
    height: 100px;
-   text-align: center;
    background-color: #F8DCF3;
    font-size: 32px;
    display: flex;
@@ -75,11 +74,24 @@ body{
    background-color: rgb(253, 241, 250);
 }
 
+
 #header{
    grid-area: header;
    background-color: rgb(57, 29, 52);
+   height: 120px;
+   color: white;
+   font-size: 32px;
+   display: flex;
+   flex-flow: column;
+   justify-content: flex-end;
 
 }
+
+p{
+    /* flex-wrap: wrap; */
+    text-align: right;
+}
+
 
 #item-AC{
    grid-area: itemAC;
