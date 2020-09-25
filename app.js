@@ -19,46 +19,81 @@ const itemEqual = document.querySelector('#item-equal');
 const show = document.querySelector('#show');
 const write = document.querySelector('#write');
 
-let num1 = '';
-let num2 = '';
+let num = '';
+let total = 0;
 
-item1.addEventListener('click', getValue)
-item2.addEventListener('click', getValue)
-item3.addEventListener('click', getValue)
-item4.addEventListener('click', getValue)
-item5.addEventListener('click', getValue)
-item6.addEventListener('click', getValue)
-item7.addEventListener('click', getValue)
-item8.addEventListener('click', getValue)
-item9.addEventListener('click', getValue)
-item0.addEventListener('click', getValue)
-itemDot.addEventListener('click', getValue)
-itemMulti.addEventListener('click', getValue)
-itemDiv.addEventListener('click', getValue)
-itemAbs.addEventListener('click', getValue)
-itemAdd.addEventListener('click', getValue)
+item1.addEventListener('click', calculate)
+item2.addEventListener('click', calculate)
+item3.addEventListener('click', calculate)
+item4.addEventListener('click', calculate)
+item5.addEventListener('click', calculate)
+item6.addEventListener('click', calculate)
+item7.addEventListener('click', calculate)
+item8.addEventListener('click', calculate)
+item9.addEventListener('click', calculate)
+item0.addEventListener('click', calculate)
+itemDot.addEventListener('click', calculate)
+itemMulti.addEventListener('click', calculate)
+itemDiv.addEventListener('click', calculate)
+itemAbs.addEventListener('click', calculate)
+itemAdd.addEventListener('click', calculate)
+
 itemAC.addEventListener('click', ac);
 itemDel.addEventListener('click', del );
 
 
 
-function getValue(e){
-    num1 += e.target.textContent;
-    write.textContent = num1;
 
+
+function calculate(e){
+   
+}
+
+function getValue(e){
+    if (num === '' && e.target.className == 'item notFirst') {
+        return;
+    }else if (num != '' && e.target.className == 'item notFirst') {
+        num += e.target.textContent;
+        // total = num;
+        // num = '';        
+        // shower(total, num);
+    }else if (e.target.id == 'item-dot' && num == '') {
+        return;
+    } else if(e.target.id == 'item-dot' && num.includes('.')){
+       return ;
+    }else if(num.indexOf(0) == '0' && num.length == 1){
+        if (e.target.id == 'item-0') {
+            return
+        }else if(e.target.id == 'item-dot'){
+            num += e.target.textContent;
+            write.textContent = num;
+        }else{
+            num = e.target.textContent;
+            write.textContent = num;
+        }
+    }else{
+        num += e.target.textContent;
+        write.textContent = num;
+        
+    }
   }
 
 
   function ac(){
       show.textContent = '';
       write.textContent = '';
-      num1 = '';
-      num2 = '';
+      num = '';
+      total = '';
   }
 
   function del(){
-      num1 = num1.slice(0, -1);
-      write.textContent = num1;
+      num = num.slice(0, -1);
+      write.textContent = num;
+  }
+
+  function shower(num1, num2){
+    show.textContent = num1;
+    write.textContent = num2;
   }
 
 
