@@ -46,7 +46,25 @@ itemDel.addEventListener('click', del );
 
 
 function calculate(e){
-   
+    getValue(e);
+    
+   switch (e.target.id) {
+       case 'item-add':
+        shower(total, num);
+           break;
+       case 'item-abs':
+        
+           break;
+       case 'item-multi':
+        
+           break;
+       case 'item-div':
+        
+           break;
+       case 'item-equal':
+        
+           break;
+   }
 }
 
 function getValue(e){
