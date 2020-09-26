@@ -26,6 +26,7 @@ item1.addEventListener('click', calculate)
 item2.addEventListener('click', calculate)
 item3.addEventListener('click', calculate)
 item4.addEventListener('click', calculate)
+
 item5.addEventListener('click', calculate)
 item6.addEventListener('click', calculate)
 item7.addEventListener('click', calculate)
@@ -37,6 +38,7 @@ itemMulti.addEventListener('click', calculate)
 itemDiv.addEventListener('click', calculate)
 itemAbs.addEventListener('click', calculate)
 itemAdd.addEventListener('click', calculate)
+itemEqual.addEventListener('click', calculate)
 
 itemAC.addEventListener('click', ac);
 itemDel.addEventListener('click', del );
@@ -46,25 +48,68 @@ itemDel.addEventListener('click', del );
 
 
 function calculate(e){
+
     getValue(e);
+
+    if (e.target.className == 'item notFirst' || e.target.id == 'item-equal') {
+        if (total != 0) {
+            switch (show.textContent.charAt(show.textContent.length-1)) {
+                case '+':
+                    total += Number(num.slice(0, -1));
+                    
+                    break;
+                case '-':
+                    total -= Number(num.slice(0, -1));
+                    
+                    break;
+                case '*':
+                    total *= Number(num.slice(0, -1));
+                    
+                    break;
+                case '÷':
+                    total /= Number(num.slice(0, -1));
+                    
+                    break;
+            }
+        }else{
+            total = Number(num.slice(0, -1));
+        }
     
-   switch (e.target.id) {
-       case 'item-add':
-        shower(total, num);
-           break;
-       case 'item-abs':
-        
-           break;
-       case 'item-multi':
-        
-           break;
-       case 'item-div':
-        
-           break;
-       case 'item-equal':
-        
-           break;
-   }
+        num = '';
+    
+        switch (e.target.id) {
+            case 'item-add':
+                shower(total.toString() + '+', num);
+                break;
+            case 'item-abs':
+                shower(total.toString() + '-', num);
+                break;
+            case 'item-multi':
+                shower(total.toString() + '*', num);            
+                break;
+            case 'item-div':
+                shower(total.toString() + '÷', num);            
+                break;
+            case 'item-equal':
+                if (total != 0) {
+                    write.textContent = total.toString();
+                    show.textContent = '';
+                }
+                break;
+        }
+    
+    }else{
+        write.textContent = num;
+    }
+
+
+
+
+
+
+
+    
+
 }
 
 function getValue(e){
@@ -77,21 +122,23 @@ function getValue(e){
         // shower(total, num);
     }else if (e.target.id == 'item-dot' && num == '') {
         return;
-    } else if(e.target.id == 'item-dot' && num.includes('.')){
+    }else if(e.target.id == 'item-dot' && num.includes('.')){
        return ;
     }else if(num.indexOf(0) == '0' && num.length == 1){
         if (e.target.id == 'item-0') {
             return
         }else if(e.target.id == 'item-dot'){
             num += e.target.textContent;
-            write.textContent = num;
+            // write.textContent = num;
         }else{
             num = e.target.textContent;
-            write.textContent = num;
+            // write.textContent = num;
         }
-    }else{
+    }else if(e.target.id == 'item-equal'){
+        return ;
+     }else{
         num += e.target.textContent;
-        write.textContent = num;
+        // write.textContent = num;
         
     }
   }
@@ -105,8 +152,9 @@ function getValue(e){
   }
 
   function del(){
-      num = num.slice(0, -1);
-      write.textContent = num;
+      
+      write.textContent = write.textContent.slice(0, -1)
+      num = write.textContent;
   }
 
   function shower(num1, num2){
