@@ -32,16 +32,14 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background-color: rgb(230, 103, 188);
+    background-color: rgb(230, 103, 188);
     -webkit-animation: bgcolor 20s infinite;
     animation: bgcolor 10s infinite;
     -webkit-animation-direction: alternate;
-    animation-direction: alternate; */
+    animation-direction: alternate;
     /* height: 100%; */
-    background: linear-gradient(90deg, rgb(226, 139, 247) 0%, #E85AA6 100%);
+    /* background: linear-gradient(90deg, rgb(226, 139, 247) 0%, #E85AA6 100%); */
 }
-
-
 
 .container{
     display: grid;
@@ -55,8 +53,6 @@ body{
     'itemDot item0 itemEqual itemEqual';
 
     width: 400px;
-   
-   
 }
 
 .item{
@@ -93,6 +89,16 @@ p{
     text-align: right;
     height: 50px;
 }
+
+#previous {
+   color: rgba(255, 255, 255, .75);
+   font-size: 1.5rem;
+ }
+ 
+#current{
+   color: white;
+   font-size: 2.5rem;
+ }
 
 
 #item-AC{
