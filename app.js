@@ -60,3 +60,10 @@ function updateDisplay(){
 function del() {
     currentValue = currentValue.slice(0, -1);
 }
+
+// Clear number completely
+function clear() {
+    currentValue = '';
+    previousValue = '';
+    operation = undefined ;
+}
