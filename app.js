@@ -15,7 +15,7 @@ container.addEventListener('click', operate);
 function operate(e) {
     switch (e.target.className) {
         case 'item number':
-            creatNumber(e.target.textContent);           
+            createNumber(e.target.textContent);           
             break;
         case 'item operation':
             getOperation(e.target.textContent);
@@ -34,4 +34,10 @@ function operate(e) {
     }
     
     updateDisplay();
+}
+
+// Create Number
+function createNumber(keyValue) {
+    if(keyValue === '.' && currentValue.includes('.')) return;
+    currentValue += keyValue;
 }
