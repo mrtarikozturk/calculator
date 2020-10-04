@@ -77,3 +77,32 @@ function getOperation(operationSign) {
     previousValue = currentValue;
     currentValue = '';
 }
+
+// Four process
+function calculate() {
+    let  result;
+    const previous = parseFloat(previousValue);
+    const current = parseFloat(currentValue);
+
+    if(isNaN(previous) || isNaN(current)) return;
+    switch (operation) {
+        case '+':
+            result = previous + current;
+            break;
+        case '-':
+            result = previous - current;
+            break;
+        case '*':
+            result = previous * current;
+            break;
+        case '÷':
+            result = previous / current;
+            break;    
+        default:
+            return;
+    }
+
+    currentValue = result.toString();
+    operation = undefined;
+    previousValue = '';
+}
