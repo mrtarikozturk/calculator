@@ -43,6 +43,7 @@ You're sections headers will be used to reference location of destination.
 
 ## Author Info
 
+- Medium - [@mr.tarik.ozturk](https://medium.com/@mr.tarik.ozturk)
 <!-- 
 - Twitter - [............](............)
 - Website - [............](............) 
