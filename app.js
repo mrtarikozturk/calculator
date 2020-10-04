@@ -48,3 +48,10 @@ function convertNumber(stringNumber) {
     if(isNaN(floatNumber)) return '';
     return floatNumber.toLocaleString('en');
 }
+
+// Show the number on screeen
+function updateDisplay(){
+    currentElement.innerText = convertNumber(currentValue);
+
+    if(operation != null) previousElement.innerText = `${convertNumber(previousValue)} ${operation}`;    
+}
