@@ -55,3 +55,8 @@ function updateDisplay(){
 
     if(operation != null) previousElement.innerText = `${convertNumber(previousValue)} ${operation}`;    
 }
+
+// Delete number from whole number one by one
+function del() {
+    currentValue = currentValue.slice(0, -1);
+}
