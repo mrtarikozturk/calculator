@@ -67,3 +67,13 @@ function clear() {
     previousValue = '';
     operation = undefined ;
 }
+
+// Run when operation buttons are pressed
+function getOperation(operationSign) {
+    if(currentValue === '') return;
+    if(previousValue !== '') calculate();
+
+    operation = operationSign;
+    previousValue = currentValue;
+    currentValue = '';
+}
