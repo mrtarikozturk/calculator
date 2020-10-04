@@ -41,3 +41,10 @@ function createNumber(keyValue) {
     if(keyValue === '.' && currentValue.includes('.')) return;
     currentValue += keyValue;
 }
+
+// Convert number to show with commas
+function convertNumber(stringNumber) {
+    const floatNumber = parseFloat(stringNumber);
+    if(isNaN(floatNumber)) return '';
+    return floatNumber.toLocaleString('en');
+}
